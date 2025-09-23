@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
         marginBottom: 12
     },
       button: {
-        backgroundColor: "#FF8C00",
+        backgroundColor: "#FF8C09",
         borderRadius: 20,
         paddingVertical: 16, marginTop: 12, alignItems: "center"
     },
@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
       link: {
         color: "#FF8C00",
         fontSize: 15,
-        fontWeight: "700", textDecorationLine: "underline"
+        fontWeight: "700",
       },
 });
 
