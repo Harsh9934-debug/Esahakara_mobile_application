@@ -32,8 +32,8 @@ const ForgotPasswordScreen = ({ navigation }: { navigation: any }) => {
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <View style={styles.card}>
         <Text style={styles.title}>Forgot Password</Text>
-        <Text style={styles.subtitle}>Enter your email to receive OTP</Text>
-        {renderInput("Email", email, setEmail)}
+        <Text style={styles.subtitle}>Enter your phone number to receive OTP</Text>
+        {renderInput("number", email, setEmail)}
         {error ? <Text style={styles.error}>{error}</Text> : null}
         <TouchableOpacity style={styles.button} onPress={handleForgotPassword}>
           <Text style={styles.buttonText}>Send OTP</Text>

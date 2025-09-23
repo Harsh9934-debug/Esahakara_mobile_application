@@ -22,7 +22,10 @@ const App = () => {
         >
           <Stack.Screen name="Splash" component={SplashScreen} />
           <Stack.Screen name="Login" component={LoginScreen} />
-          <Stack.Screen name="Signup" component={SignupScreen} />
+
+          {/* this is the signup section screen but this is not require */}
+          {/* <Stack.Screen name="Signup" component={SignupScreen} /> */}
+
           <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
           <Stack.Screen name="Otp" component={OtpScreen} />
         </Stack.Navigator>

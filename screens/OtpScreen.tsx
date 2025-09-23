@@ -26,8 +26,8 @@ const OtpScreen = ({ navigation }: { navigation: any }) => {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <View style={styles.card}>
-        <Text style={styles.title}>Enter OTP</Text>
-        <Text style={styles.subtitle}>Check your email for the OTP</Text>
+        <Text style={styles.title}>Phone number  OTP</Text>
+        <Text style={styles.subtitle}>Check your message for the OTP</Text>
         <View style={styles.otpContainer}>
           {otp.map((digit, idx) => (
             <TextInput

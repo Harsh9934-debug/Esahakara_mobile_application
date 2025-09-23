@@ -42,7 +42,6 @@ const SignupScreen = ({ navigation }: { navigation: any }) => {
         <Text style={styles.title}>Create Account</Text>
         <Text style={styles.subtitle}>Sign up to get started</Text>
         {renderInput("Username", username, setUsername)}
-        {renderInput("Email", email, setEmail)}
         {renderInput("Password", password, setPassword, secureText)}
         {renderInput("Confirm Password", confirmPassword, setConfirmPassword, secureText)}
         {error ? <Text style={styles.error}>{error}</Text> : null}
