@@ -37,21 +37,23 @@ const SignupScreen = ({ navigation }: { navigation: any }) => {
   );
 
   return (
-    <View style={styles.card}>
-      <Text style={styles.title}>Create Account</Text>
-      <Text style={styles.subtitle}>Sign up to get started</Text>
-      {renderInput("Username", username, setUsername)}
-      {renderInput("Email", email, setEmail)}
-      {renderInput("Password", password, setPassword, secureText)}
-      {renderInput("Confirm Password", confirmPassword, setConfirmPassword, secureText)}
-      {error ? <Text style={styles.error}>{error}</Text> : null}
-      <TouchableOpacity style={styles.button} onPress={handleSignup}>
-        <Text style={styles.buttonText}>Sign Up</Text>
-      </TouchableOpacity>
-      <View style={styles.backButton}>
-        <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-          <Text style={styles.link}>Back to Login</Text>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <View style={styles.card}>
+        <Text style={styles.title}>Create Account</Text>
+        <Text style={styles.subtitle}>Sign up to get started</Text>
+        {renderInput("Username", username, setUsername)}
+        {renderInput("Email", email, setEmail)}
+        {renderInput("Password", password, setPassword, secureText)}
+        {renderInput("Confirm Password", confirmPassword, setConfirmPassword, secureText)}
+        {error ? <Text style={styles.error}>{error}</Text> : null}
+        <TouchableOpacity style={styles.button} onPress={handleSignup}>
+          <Text style={styles.buttonText}>Sign Up</Text>
         </TouchableOpacity>
+        <View style={styles.backButton}>
+          <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+            <Text style={styles.link}>Back to Login</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
@@ -61,28 +63,28 @@ const styles = StyleSheet.create({
     card: {
         width: width * 0.92,
         padding: 36,
-        backgroundColor: "rgba(255,255,255,0.08)",
+        backgroundColor: "rgba(0,0,0,0.05)",
         borderRadius: 28,
         marginTop: 24
       },
       title: {
         fontSize: 26,
         fontWeight: "800",
-        color: "#fff",
+        color: "#000000",
         marginBottom: 6,
         textAlign: "center"
       },
       subtitle: {
         fontSize: 16,
-        color: "#ccc",
+        color: "#333333",
         textAlign: "center",
         marginBottom: 22
       },
       inputPro: {
-        backgroundColor: "rgba(255,255,255,0.1)",
+        backgroundColor: "rgba(0,0,0,0.05)",
         borderRadius: 12, height: 50,
         paddingHorizontal: 16,
-        color: "#fff",
+        color: "#000000",
         marginBottom: 14
       },
       error: {
@@ -91,17 +93,17 @@ const styles = StyleSheet.create({
         marginBottom: 12
     },
       button: {
-        backgroundColor: "#00b4d8",
+        backgroundColor: "#FF8C00",
         borderRadius: 20,
         paddingVertical: 16, marginTop: 12, alignItems: "center"
     },
       buttonText: {
-        color: "#fff",
+        color: "#FFFFFF",
         fontSize: 18,
         fontWeight: "700"
     },
       link: {
-        color: "#00b4d8",
+        color: "#FF8C00",
         fontSize: 15,
         fontWeight: "700", textDecorationLine: "underline"
       },
