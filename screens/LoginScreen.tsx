@@ -13,7 +13,8 @@ const LoginScreen = ({ navigation }: { navigation: any }) => {
     setError('');
     await new Promise<void>((resolve) => setTimeout(resolve, 500));
     if (username && password) {
-      Alert.alert('Login Successful', `Welcome, ${username}!`);
+      // Navigate to Start1 screen upon successful login
+      navigation.navigate('Start1');
     } else {
       setError('Please enter both username and password.');
     }

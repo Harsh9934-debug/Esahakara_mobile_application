@@ -6,6 +6,7 @@ import LoginScreen from './screens/LoginScreen';
 import SignupScreen from './screens/SignupScreen';
 import ForgotPasswordScreen from './screens/ForgotPasswordScreen';
 import OtpScreen from './screens/OtpScreen';
+import Start1 from './screens/start1';
 import { StyleSheet, View } from 'react-native';
 
 const Stack = createNativeStackNavigator();
@@ -22,6 +23,7 @@ const App = () => {
         >
           <Stack.Screen name="Splash" component={SplashScreen} />
           <Stack.Screen name="Login" component={LoginScreen} />
+          <Stack.Screen name="Start1" component={Start1} />
 
           {/* this is the signup section screen but this is not require */}
           {/* <Stack.Screen name="Signup" component={SignupScreen} /> */}
