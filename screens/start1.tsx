@@ -11,28 +11,25 @@ import {
   StatusBar
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import Icon from 'react-native-vector-icons/Feather';
 
 const { width } = Dimensions.get('window');
 
-const Start1 = ({ navigation }: { navigation?: any }) => {
+const Start1 = ({ }) => {
   const [searchFocused, setSearchFocused] = useState(false);
 
-  // Data for the 'Your Services' section
   const serviceItems = [
-    { name: 'Transfer', icon: 'send' },
-    { name: 'Payments', icon: 'credit-card' },
-    { name: 'Investments', icon: 'trending-up' },
-    { name: 'Loans', icon: 'dollar-sign' },
-    { name: 'Insurance', icon: 'shield' },
-    { name: 'More', icon: 'grid' },
+    { name: 'Share Account' },
+    { name: 'Loan Account' },
+    { name: 'RD Account' },
+    { name: 'FD Account' },
+    { name: 'Pigmy Account' },
+    { name: 'Chit Funds' },
   ];
 
-  // Dummy data for transactions
   const transactions = [
-    { name: 'Netflix Subscription', amount: '-₹799', time: '2:30 PM', icon: 'tv' },
-    { name: 'Salary Credit', amount: '+₹45,000', time: '9:00 AM', icon: 'trending-up' },
-    { name: 'Grocery Shopping', amount: '-₹2,450', time: 'Yesterday', icon: 'shopping-bag' },
+    { name: 'Subscription', amount: '-₹799', time: '2:30 PM', color: '#DC2626' },
+    { name: 'Salary Credit', amount: '+₹45,000', time: '9:00 AM', color: '#059669' },
+    { name: 'Grocery Shopping', amount: '-₹2,450', time: 'Yesterday', color: '#F97316' },
   ];
 
   return (
@@ -42,66 +39,38 @@ const Start1 = ({ navigation }: { navigation?: any }) => {
         <ScrollView showsVerticalScrollIndicator={false}>
           {/* Header Section */}
           <LinearGradient
-            colors={['#667eea', '#764ba2']}
+            colors={['#FF7E5F', '#FEB47B']}
             start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
+            end={{ x: 1, y: 0 }}
             style={styles.headerGradient}
           >
             <View style={styles.header}>
               <View>
-                <Text style={styles.greeting}></Text>
-                <Text style={styles.userName}>Harsh Kumar</Text>
+                <Text style={styles.greeting}>Hello, Harsh Kumar</Text>
               </View>
-              <View style={styles.headerIcons}>
-                <TouchableOpacity style={styles.iconButton}>
-                  <Icon name="search" size={22} color="#FFF" />
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.iconButton}>
-                  <Icon name="bell" size={22} color="#FFF" />
-                  <View style={styles.notificationDot} />
-                </TouchableOpacity>
-              </View>
+              <TouchableOpacity>
+              </TouchableOpacity>
             </View>
 
             {/* Main Account Card */}
             <View style={styles.accountCard}>
-              <View style={styles.accountHeader}>
-                <View>
-                  <Text style={styles.accountTitle}>Total Balance</Text>
-                  <Text style={styles.accountBalance}>₹1,24,500.00</Text>
-                </View>
-                <TouchableOpacity style={styles.eyeButton}>
-                  <Icon name="eye" size={20} color="#FFF" />
+              <Text style={styles.accountTitle}>Account Number</Text>
+              <Text style={styles.accountBalance}>SB01100000003016</Text>
+              <View style={styles.balanceRow}>
+                <Text style={styles.balanceText}>Balance</Text>
+                <TouchableOpacity>
                 </TouchableOpacity>
-              </View>
-              
-              <View style={styles.accountDetails}>
-                <View style={styles.accountInfo}>
-                  <Text style={styles.accountLabel}>Account No.</Text>
-                  <Text style={styles.accountNumber}>SB01100000003016</Text>
-                </View>
-                <View style={styles.quickActionsRow}>
-                  <TouchableOpacity style={styles.quickActionBtn}>
-                    <Icon name="arrow-up" size={16} color="#667eea" />
-                    <Text style={styles.quickActionText}>Send</Text>
-                  </TouchableOpacity>
-                  <TouchableOpacity style={styles.quickActionBtn}>
-                    <Icon name="arrow-down" size={16} color="#667eea" />
-                    <Text style={styles.quickActionText}>Request</Text>
-                  </TouchableOpacity>
-                  <TouchableOpacity style={styles.quickActionBtn}>
-                    <Icon name="credit-card" size={16} color="#667eea" />
-                    <Text style={styles.quickActionText}>Pay Bills</Text>
-                  </TouchableOpacity>
-                </View>
               </View>
             </View>
           </LinearGradient>
 
+          {/* this is movenment section  */}
+          
+
           {/* Your Actions Section */}
           <View style={styles.actionsContainer}>
             <View style={styles.actionsHeader}>
-              <Text style={styles.actionsTitle}>Quick Actions</Text>
+              <Text style={styles.actionsTitle}>CASA Accounts</Text>
               <TouchableOpacity>
                 <Text style={styles.viewAllText}>View All</Text>
               </TouchableOpacity>
@@ -109,7 +78,6 @@ const Start1 = ({ navigation }: { navigation?: any }) => {
             <View style={styles.gridContainer}>
               {serviceItems.map((item, index) => (
                 <TouchableOpacity key={index} style={styles.actionButton}>
-                  <Icon name={item.icon} size={32} color="#667eea" />
                   <Text style={styles.actionText}>{item.name}</Text>
                 </TouchableOpacity>
               ))}
@@ -127,8 +95,8 @@ const Start1 = ({ navigation }: { navigation?: any }) => {
             <View style={styles.transactionsList}>
               {transactions.map((transaction, index) => (
                 <TouchableOpacity key={index} style={styles.transactionItem}>
-                  <View style={styles.transactionIconContainer}>
-                    <Icon name={transaction.icon} size={20} color="#666" />
+                  <View style={[styles.transactionIconContainer, { backgroundColor: transaction.color + '1A' }]}>
+                    <View style={[styles.transactionIconDot, { backgroundColor: transaction.color }]} />
                   </View>
                   <View style={styles.transactionDetails}>
                     <Text style={styles.transactionName}>{transaction.name}</Text>
@@ -149,15 +117,13 @@ const Start1 = ({ navigation }: { navigation?: any }) => {
         {/* Bottom Navigation */}
         <View style={styles.bottomNav}>
           <TouchableOpacity style={styles.navItem}>
-            <Icon name="credit-card" size={22} color="#888" />
             <Text style={styles.navText}>Payments</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.navItemActive}>
-            <Icon name="home" size={22} color="#667eea" />
             <Text style={styles.navTextActive}>Home</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.navItem}>
-            <Icon name="more-horizontal" size={22} color="#888" />
+            <Text style={{ fontSize: 22, color: '#888' }}>⋯</Text>
             <Text style={styles.navText}>More</Text>
           </TouchableOpacity>
         </View>
@@ -189,97 +155,19 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 20,
-    paddingTop: 10,
+    paddingTop: 40,
     marginBottom: 20,
   },
   greeting: {
-    fontSize: 16,
-    color: 'rgba(255, 255, 255, 0.8)',
-    marginBottom: 4,
-  },
-  userName: {
     fontSize: 24,
     fontWeight: 'bold',
     color: '#FFF',
-  },
-  headerIcons: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  iconButton: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: 'rgba(255, 255, 255, 0.15)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginLeft: 10,
-  },
-  notificationDot: {
-    position: 'absolute',
-    top: 8,
-    right: 8,
-    width: 8,
-    height: 8,
-    borderRadius: 4,
-    backgroundColor: '#FF3B30',
   },
   accountCard: {
     marginHorizontal: 20,
     padding: 25,
     borderRadius: 15,
     backgroundColor: 'rgba(255,255,255,0.2)',
-  },
-  accountHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'flex-start',
-    marginBottom: 20,
-  },
-  eyeButton: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  accountDetails: {
-    marginTop: 10,
-  },
-  accountInfo: {
-    marginBottom: 20,
-  },
-  accountLabel: {
-    fontSize: 14,
-    color: 'rgba(255, 255, 255, 0.8)',
-    marginBottom: 4,
-  },
-  accountNumber: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#FFF',
-  },
-  quickActionsRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  quickActionBtn: {
-    backgroundColor: 'rgba(255, 255, 255, 0.9)',
-    paddingHorizontal: 16,
-    paddingVertical: 10,
-    borderRadius: 20,
-    flexDirection: 'row',
-    alignItems: 'center',
-    flex: 1,
-    marginHorizontal: 4,
-    justifyContent: 'center',
-  },
-  quickActionText: {
-    marginLeft: 6,
-    fontSize: 12,
-    fontWeight: '600',
-    color: '#667eea',
   },
   accountTitle: {
     fontSize: 16,
@@ -331,21 +219,21 @@ const styles = StyleSheet.create({
     width: (width - 60) / 3,
     height: (width - 60) / 3,
     backgroundColor: '#FFF',
-    borderRadius: 20,
+    borderRadius: 15,
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 15,
-    shadowColor: '#667eea',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.1,
-    shadowRadius: 8,
-    elevation: 5,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.05,
+    shadowRadius: 4,
+    elevation: 3,
   },
   actionText: {
     marginTop: 8,
     fontSize: 12,
-    fontWeight: '600',
-    color: '#2D3748',
+    fontWeight: '500',
+    color: '#555',
     textAlign: 'center',
   },
   transactionsContainer: {
@@ -372,10 +260,14 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 20,
-    backgroundColor: '#F8FAFC',
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 15,
+  },
+  transactionIconDot: {
+    width: 15,
+    height: 15,
+    borderRadius: 7.5,
   },
   transactionDetails: {
     flex: 1,
@@ -438,7 +330,7 @@ const styles = StyleSheet.create({
   },
   navTextActive: {
     fontSize: 12,
-    color: '#667eea',
+    color: '#FF7E5F',
     marginTop: 5,
     fontWeight: '600',
   },

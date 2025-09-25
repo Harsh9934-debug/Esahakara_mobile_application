@@ -24,12 +24,10 @@ const App = () => {
           <Stack.Screen name="Splash" component={SplashScreen} />
           <Stack.Screen name="Login" component={LoginScreen} />
           <Stack.Screen name="Start1" component={Start1} />
-
-          {/* this is the signup section screen but this is not require */}
-          {/* <Stack.Screen name="Signup" component={SignupScreen} /> */}
-
           <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
           <Stack.Screen name="Otp" component={OtpScreen} />
+          {/* Signup screen is commented out as per user preference */}
+          {/* <Stack.Screen name="Signup" component={SignupScreen} /> */}
         </Stack.Navigator>
       </NavigationContainer>
     </View>
